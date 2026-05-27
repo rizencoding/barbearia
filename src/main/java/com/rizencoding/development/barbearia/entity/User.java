@@ -4,6 +4,8 @@ import com.rizencoding.development.barbearia.entity.enums.UserEnum;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name="usuarios")
@@ -19,4 +21,6 @@ public class User {
     private String password;
     @Enumerated(EnumType.STRING)
     private UserEnum perfil;
+    @OneToMany(mappedBy = "barbeiro")
+    private List<HorarioTrabalho> horarioTrabalho;
 }
